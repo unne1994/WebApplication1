@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <input type="text" class="form-control" placeholder="類別" aria-describedby="basic-addon1">
+    <input type="text" class="form-control" placeholder="日期" aria-describedby="basic-addon1">
+    <input type="text" class="form-control" placeholder="金額" aria-describedby="basic-addon1">
+</div>
+
+<div class="row">
+    <table class="table"> 
+        <thead> 
+            <tr> 
+                <th>#</th>
+                <th>類別</th>
+                <th>日期</th>
+                <th>金額</th>
+                </tr> 
+        </thead> 
+        <tbody> 
+                <tr> 
+                        <th scope="row">1</th> 
+                        @*<td>@RenderSection("category",required:false)</td> 
+                        <td>@RenderSection("date", required: false)</td> 
+                        <td>@RenderSection("AmountOfMoney", required: false)</td>*@ 
+                </tr> 
+        </tbody> 
+    </table>
+</div>

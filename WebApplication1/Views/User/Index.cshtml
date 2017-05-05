@@ -1,0 +1,95 @@
+﻿
+@model List<WebApplication1.Models.Class1>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+@using (Html.BeginForm())
+{
+ 
+    @Html.AntiForgeryToken()
+ 
+    <div class="form-horizontal">
+        <h4>Class1</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+@foreach (var jj in Model)
+{
+        <div class="form-group">
+            <label class="control-label col-md-2" for="category">類別</label>
+            @*@Html.LabelFor(model => model.category, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+  
+                @Html.EditorFor(model => jj.category, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => jj.category, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="category">日期</label>
+            @*@Html.LabelFor(model => model.date, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+
+                @Html.EditorFor(model => jj.date, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => jj.date, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="category">金額</label>
+            @*@Html.LabelFor(model => model.AmountOfMoney, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+
+                @Html.EditorFor(model => jj.AmountOfMoney, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => jj.AmountOfMoney, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+    break;
+}
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div class="row">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>類別</th>
+                <th>日期</th>
+                <th>金額</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var i in Model)
+            {
+                <tr>
+                    <th scope="row">@i.water</th>
+                    <td>@i.category</td>
+                    <td>@i.date</td>
+                    <td>@i.AmountOfMoney</td>
+                </tr>
+            }
+     
+
+        </tbody>
+    </table>
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
